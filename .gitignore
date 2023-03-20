@@ -1,3 +1,5 @@
+test_files.txt
+train_files.txt
 logs/
 wavs/
 .DS_Store

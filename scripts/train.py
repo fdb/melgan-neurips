@@ -87,12 +87,12 @@ def main():
     # Create data loaders #
     #######################
     train_set = AudioDataset(
-        Path(args.data_path) / "train_files.txt", args.seq_len, sampling_rate=22050
+        Path(args.data_path) / "train_files.txt", args.seq_len, sampling_rate=44100
     )
     test_set = AudioDataset(
         Path(args.data_path) / "test_files.txt",
-        22050 * 4,
-        sampling_rate=22050,
+        44100 * 4,
+        sampling_rate=44100,
         augment=False,
     )
 
@@ -112,8 +112,8 @@ def main():
         test_audio.append(x_t)
 
         audio = x_t.squeeze().cpu()
-        save_sample(root / ("original_%d.wav" % i), 22050, audio)
-        writer.add_audio("original/sample_%d.wav" % i, audio, 0, sample_rate=22050)
+        save_sample(root / ("original_%d.wav" % i), 44100, audio)
+        writer.add_audio("original/sample_%d.wav" % i, audio, 0, sample_rate=44100)
 
         if i == args.n_test_samples - 1:
             break

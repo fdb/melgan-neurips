@@ -74,7 +74,7 @@ def main():
         x_pred_t = netG(s_t.to(device))
         print("x_pred_t", x_pred_t.shape)
         gen_audio = x_pred_t.squeeze().cpu()
-        save_sample(output_path / output_file, 22500, gen_audio)
+        save_sample(output_path / output_file, 44100, gen_audio)
         print(f'Saved as {output_path / output_file}')
 
 
